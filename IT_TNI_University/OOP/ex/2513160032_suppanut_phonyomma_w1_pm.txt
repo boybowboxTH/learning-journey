@@ -1,0 +1,65 @@
+--Ex201
+
+import java.text.DecimalFormat;
+public class Ex201 {
+    static void main(){
+        DecimalFormat df = new DecimalFormat("#,###.00");
+
+        String productId = "PD-001";
+        String productName = "Pencil box";
+        int productQuantity = 112;
+        float productPrice = 30.20f;
+
+        System.out.println("Product name: " + productName + " ("+productId+")");
+        System.out.println("Product item: " + productQuantity + " ("+df.format(productPrice)+" bath/piece)");
+
+        float totalPrice = productQuantity * productPrice;
+        System.out.println("Total price: " + df.format(totalPrice) + " bath");
+    }
+}
+
+--Ex202
+
+import java.util.Scanner;
+public class Ex202 {
+    static void main(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter student-id: ");
+        String studentId = input.nextLine();
+        System.out.print("Enter student name: ");
+        String studentName = input.nextLine();
+
+        System.out.println();
+        System.out.println("Student-Id : " + studentId);
+        System.out.println("Student name : " + studentName);
+    }
+}
+
+
+--Ex203
+
+import javax.swing.*;
+import java.text.*;
+public class Ex203 {
+    static void main(){
+        DecimalFormat df = new DecimalFormat("#,###.00");
+        final int fee_credit_lecture = 1900;
+        final int fee_credit_lab = 3500;
+
+        String srtCreditLecture = JOptionPane.showInputDialog(null,"How many credits of lecture courses that you registerd : ");
+        int creditLecture = Integer.parseInt(srtCreditLecture);
+
+        int creditLab = Integer.parseInt(JOptionPane.showInputDialog(null,"How many credits of lab courses that you registerd : "));
+
+        int totalCredit_Lecture = fee_credit_lecture * creditLecture;
+        int totalCredit_Lab = fee_credit_lab * creditLab;
+
+        int paymentCourse = totalCredit_Lab + totalCredit_Lecture;
+
+        JOptionPane.showMessageDialog(null,"Lecture: " + creditLecture + "x" + fee_credit_lecture + "=" + df.format(totalCredit_Lecture) +
+                "\nLaboratory: " + creditLab + "x" + fee_credit_lab + "=" + df.format(totalCredit_Lab) +
+                "\nTotal price: " + df.format(paymentCourse));
+
+    }
+}

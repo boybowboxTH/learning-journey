@@ -1,0 +1,123 @@
+--Lab402
+
+package w2;
+
+import javax.swing.*;
+
+public class Lab402 {
+    static void main(){
+        String stu_id = JOptionPane.showInputDialog("Enter student-id:");
+        String major;
+
+        while(stu_id.length() != 10){
+            stu_id = JOptionPane.showInputDialog("Enter student-id:");
+        }
+        String major_id = stu_id.substring(2,5);
+
+        switch (major_id){
+            case "131":
+                JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                        "\nMajor: " + "Information Technology (IT)"); break;
+            case "132":
+                JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                        "\nMajor: " + "Multimedia Technology (MT)"); break;
+            case "133":
+                JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                        "\nMajor: " + "Digital Business Information Technology (BI)"); break;
+            case "134":
+                JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                        "\nMajor: " + "Digital Technology in Mass Communication (DC)"); break;
+            case "135":
+                JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                        "\nMajor: " + "Data Science and Data Analytics (DS)"); break;
+            default: JOptionPane.showMessageDialog(null,"Student ID: " + stu_id +
+                    "\nMajor: " + "Cannot found major"); break;
+        }
+
+
+    }
+
+}
+
+
+--Lab 403
+
+package w2;
+import javax.swing.*;
+
+public class Lab403 {
+    static void main(){
+        String ad_username = "admin";
+        String ad_password = "Admin1234";
+
+        String username = JOptionPane.showInputDialog("Enter username:");
+        String password = JOptionPane.showInputDialog("Enter password:");
+
+        while(!(username.equalsIgnoreCase(ad_username) && password.equals(ad_password))){
+            JOptionPane.showMessageDialog(null,"Login Fail...", "Incorrect username or password", JOptionPane.WARNING_MESSAGE);
+            username = JOptionPane.showInputDialog("Enter username:");
+            password = JOptionPane.showInputDialog("Enter password:");
+        }
+        JOptionPane.showMessageDialog(null,"Login Success!!");
+
+    }
+}
+
+
+--Lab 404
+
+package w2;
+
+import java.util.Scanner;
+
+public class Lab404 {
+    static void main(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter word: ");
+        String word = sc.nextLine();
+        String text = "";
+
+        while(!word.equalsIgnoreCase("stop")){
+            text = text.concat(word + " ");
+            System.out.print("Enter word: ");
+            word = sc.nextLine();
+        }
+        System.out.println(text);
+
+
+    }
+}
+
+
+-- Lab 405
+
+package w2;
+
+import java.util.Scanner;
+
+public class Lab405 {
+    static void main(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input some sentence: ");
+        String sentence = sc.nextLine();
+        int spaceIndex;
+
+        while (sentence.charAt(sentence.length() - 1) != '.'){
+            System.out.print("The sentence must end with full stop point: ");
+            sentence = sc.nextLine();
+
+        }
+        System.out.println(" ");
+
+        while((spaceIndex = sentence.indexOf(' ')) != -1){
+            String word  = sentence.substring(0,spaceIndex);
+
+            System.out.println(word);
+
+            sentence = sentence.substring(spaceIndex + 1);
+        }
+        System.out.println(sentence);
+    }
+}

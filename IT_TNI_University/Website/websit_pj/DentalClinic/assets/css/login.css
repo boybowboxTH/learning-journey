@@ -1,0 +1,51 @@
+.top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.logotext {
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* ส่วนของฟอร์มเข้าสู่ระบบ */
+.outer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0 15px; /* กันชนขอบเวลาเปิดในมือถือ */
+}
+
+.wrap {
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff; /* เพิ่มพื้นหลังขาวเผื่อพื้นหลังเว็บเป็นสีอื่น */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* เพิ่มเงาให้ดูมีมิติ */
+}
+
+.error-box {
+    color: #d9534f;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ปรับแต่งสำหรับมือถือ */
+@media (max-width: 600px) {
+    .top {
+        padding: 15px;
+        justify-content: center; /* หมุนมาอยู่ตรงกลางในมือถือ (เลือกเอาได้ครับ) */
+    }
+    .logotext {
+        font-size: 1rem;
+    }
+}

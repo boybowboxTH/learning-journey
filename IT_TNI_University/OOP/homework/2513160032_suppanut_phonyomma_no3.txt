@@ -1,0 +1,52 @@
+--ข้อ 3
+
+package w3;
+
+public class LoanCalculator {
+    String productName;
+    double price;
+    double interestRate;
+    int years;
+
+    public void setLoadDetails(String productName, double price, double interestRate, int years){
+        this.productName = productName;
+        this.price = price;
+        this.interestRate = interestRate;
+        this.years = years;
+    }
+
+    public double calculateMonthlyPayment(){
+        double r = (interestRate / 100.0) / 12.0;
+        double n = years * 12;
+        double P = price;
+        double factor = Math.pow(1 + r, n);
+        double numerator = P * r * factor;
+        double denominator = factor - 1;
+        double monthlyPayment = numerator / denominator;
+
+        return monthlyPayment;
+    }
+
+    public void displayLoanDetails(){
+        System.out.println("Product: " + productName);
+        System.out.println("Price: " + price);
+        System.out.println("Interest Rate: " + interestRate);
+        System.out.println("Loan Period: " + years);
+        System.out.println("Monthly Payment: " + calculateMonthlyPayment());
+    }
+
+
+}
+
+---------
+
+package w3;
+
+public class TestLoanCalculator {
+    static void main(){
+        LoanCalculator loanCal = new LoanCalculator();
+
+        loanCal.setLoadDetails("Laptop",50000,5,2);
+        loanCal.displayLoanDetails();
+    }
+}

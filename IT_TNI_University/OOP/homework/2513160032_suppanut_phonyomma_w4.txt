@@ -1,0 +1,227 @@
+--Lab 4
+- Car
+
+package w5;
+
+public class Car {
+    private String companyName;
+    private String modelName;
+    private int year;
+    private double mileage;
+
+    Car(){
+        companyName = "Unknown";
+        modelName = "Unknown";
+        year = 2000;
+        mileage = 0.0;
+    }
+
+    Car(String companyName,String modelName,int year,double mileage){
+        this.companyName = companyName;
+        this.modelName = modelName;
+        this.year = year;
+        this.mileage = mileage;
+    }
+
+    public void setCompanyName(String companyName){
+        if(companyName == null || companyName.trim().isEmpty()){
+            System.out.println("Error: Invalid company or model name!");
+        }else {
+            this.companyName = companyName;
+        }
+    }
+
+    public void setModelName(String modelName){
+        if(modelName == null || modelName.trim().isEmpty()){
+            System.out.println("Error: Invalid company or model name!");
+        }else{
+            this.modelName = modelName;
+        }
+    }
+
+    public void setYear(int year){
+        if(year < 1886){
+            System.out.println("Error: Invalid year!");
+        }else{
+            this.year = year;
+        }
+    }
+
+
+    public String getCompanyName(){
+        return this.companyName;
+    }
+
+    public String getModelName(){
+        return this.modelName;
+    }
+
+    public int getYear(){
+        return this.year;
+    }
+
+    public  double getMileage(){
+        return this.mileage;
+    }
+
+    public void showMsg(){
+        System.out.println("Company Name: " + this.companyName);
+        System.out.println("Model Name: " + this.modelName);
+        System.out.println("Year: " + this.year);
+        System.out.println("Mileage: " + this.mileage);
+    }
+
+}
+
+- CarDemo
+
+package w5;
+
+public class DemoCar {
+    static void main(String[] args){
+        Car car = new Car("Chevrolet", "Cruze", 2009,150000.0);
+
+        car.showMsg();
+
+        System.out.println();
+        System.out.println("Updated Car Details:");
+        car.setCompanyName("Toyota");
+        car.setModelName("Corolla");
+        car.setYear(2015);
+
+        System.out.println("Company Name: " + car.getCompanyName());
+        System.out.println("Model Name: " + car.getModelName());
+        System.out.println("Year: " + car.getYear());
+
+        car.setYear(100);
+        car.setModelName(null);
+
+    }
+}
+
+------------------------------------------------------
+
+--Lab 5
+-SmartPhone
+
+package w5;
+
+public class SmartPhone {
+    private String brand;
+    private String model;
+    private int storageCapacity;
+    private static final int MAX_STORAGE_CAPACITY = 521;
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getStorageCapacity() {
+        return storageCapacity;
+    }
+
+    public void setBrand(String brand) {
+        if(brand.length() < 2){
+            System.out.println("Error: Brand must have at least 2characters!");
+        }else{
+            this.brand = brand;
+        }
+    }
+
+    public void setModel(String model) {
+        if(model.length() < 2){
+            System.out.println("Error: Model must have at least 2characters!");
+        }else{
+            this.model = model;
+        }
+    }
+
+    public void setStorageCapacity(int storageCapacity) {
+        if(storageCapacity < 1 || storageCapacity > 512){
+            System.out.println("Error: Storage capacity must be between 1 and 512GB!");
+        }else{
+            this.storageCapacity = storageCapacity;
+        }
+    }
+
+    public void increaseStorage(int additionalStorage){
+        int totalStorage = storageCapacity + additionalStorage;
+        if(additionalStorage <= 0){
+            System.out.println("Error: Additional storage must be positive!");
+        } else if (storageCapacity > 0 && totalStorage < MAX_STORAGE_CAPACITY) {
+            storageCapacity+= additionalStorage;
+        }else{
+            System.out.println("Error: Storage capacity cannot exceed " + MAX_STORAGE_CAPACITY + " GB!");
+        }
+    }
+
+    public int getRemainingStorage(int usedStorage){
+        int total = 0;
+        if(usedStorage >= 0 && usedStorage <= this.storageCapacity){
+            total = this.storageCapacity - usedStorage;
+            return total;
+        }else{
+            System.out.println("Error: Used storage must be between 0 and " + this.storageCapacity + " GB!");
+        }
+        return -1;
+    }
+
+    public void printDetails(){
+        System.out.println("SmartPhone Details:");
+        System.out.println("Brand: " + this.brand);
+        System.out.println("Model: " + this.model);
+        System.out.println("Storage Capacity: " + this.storageCapacity + " GB");
+    }
+
+}
+
+-TestSmartPhone
+
+package w5;
+
+public class TestSmartPhone {
+    public static void main(String[] args){
+        SmartPhone phone = new SmartPhone();
+
+        System.out.println("กำลังตั้งค่าข้อมูลสมาร์ทโฟนเริ่มต้น...");
+        phone.setBrand("SmartMobile");
+        phone.setModel("W1000");
+        phone.setStorageCapacity(256);
+
+        System.out.println("\nข้อมูลสมาร์ทโฟนเบื้องต้น:");
+        phone.printDetails();
+
+        System.out.println("\nเพิ่มความจุหน่วยความจำ100 GB...");
+        phone.increaseStorage(100);
+
+        System.out.println("\nพยายามเพิ่มความจุหน่วยความจำ200 GB...");
+        phone.increaseStorage(200);
+
+        System.out.println("\nพยายามเพิ่มความจุหน่วยความจำ-50 GB...");
+        phone.increaseStorage(-50);
+
+        System.out.println("\nคำนวณพื้นที่คงเหลือถ้าใช้พื้นที่ไปแล้ว120 GB...");
+        int remainingStorage = phone.getRemainingStorage(120);
+        if (remainingStorage != -1) {
+            System.out.println("พื้นที่คงเหลือ: " + remainingStorage + " GB");
+        }
+
+        System.out.println("\nคำนวณพื้นที่คงเหลือถ้าใช้พื้นที่ไปแล้ว500 GB...");
+        phone.getRemainingStorage(500);
+
+        System.out.println("\nตั้งค่าแบรนด์และรุ่นด้วยค่าที่ไม่ถูกต้อง...");
+        phone.setBrand("");
+        phone.setModel("A");
+
+        System.out.println("\nตั้งค่าความจุด้วยค่าที่ไม่ถูกต้อง...");
+        phone.setStorageCapacity(600);
+
+        System.out.println("\nข้อมูลสมาร์ทโฟนสุดท้าย:");
+        phone.printDetails();
+    }
+}
+

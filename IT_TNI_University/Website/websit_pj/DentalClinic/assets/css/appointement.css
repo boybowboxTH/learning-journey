@@ -1,0 +1,142 @@
+.appointment-page {
+    --clinic-primary: #3fbbc0;
+    --clinic-bg: #f4f7f6;
+    --clinic-white: #ffffff;
+    font-family: 'Prompt', sans-serif;
+}
+
+.appointment-page .booking-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-top: 120px;
+}
+
+.appointment-page .booking-card {
+    background: var(--clinic-white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-top: 6px solid var(--clinic-primary);
+}
+
+.appointment-page .logo-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.appointment-page .logo-header h2 {
+    color: black;
+    font-size: 1.4rem;
+    margin: 10px 0 0 0;
+}
+
+.appointment-page .form-group {
+    margin-bottom: 20px;
+    text-align: left; /* บังคับชิดซ้ายป้องกันหน้าหลักสั่งชิดกลาง */
+}
+
+.appointment-page .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #666;
+}
+
+.appointment-page .form-control-custom, 
+.appointment-page .form-select-custom {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    font-family: 'Prompt', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: block;
+}
+
+.appointment-page .row-group {
+    display: flex;
+    gap: 15px;
+}
+
+/* ปุ่มแบบเจาะจงชื่อ */
+.appointment-page .btn-booking-submit {
+    width: 100%;
+    background-color: var(--clinic-primary);
+    color: var(--clinic-white);
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.appointment-page .btn-booking-submit:hover {
+    background-color: #359ea2;
+    box-shadow: 0 5px 15px rgba(63, 187, 192, 0.3);
+}
+
+/* ส่วนเพิ่มเติมสำหรับตารางประวัติการจอง */
+.appointment-page .history-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.appointment-page .history-table th {
+    background-color: var(--clinic-primary);
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.appointment-page .history-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.appointment-page .history-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ตกแต่งสถานะ Badge */
+.appointment-page .status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.appointment-page .status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.appointment-page .status-confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+/* ปรับแต่ง Container ให้กว้างขึ้นสำหรับหน้าประวัติ */
+.appointment-page .history-container {
+    max-width: 900px; /* กว้างกว่าหน้าจองปกติ */
+    margin: 40px auto;
+    padding: 120px 20px 40px 20px;
+}
+
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 480px) {
+    .appointment-page .row-group {
+        flex-direction: column;
+        gap: 0;
+    }
+}

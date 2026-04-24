@@ -1,0 +1,43 @@
+package w3;
+
+public class IncomeTaxCalculator{
+    double income;
+
+    public void setlncome(double income){
+        this.income = income;
+    }
+
+    public double calculateTax() {
+        double taxableIncome = this.income;
+        double tax = 0.0;
+
+        // อัตรา 20%
+        if (taxableIncome > 500000) {
+            double incomeAbove500K = taxableIncome - 500000;
+            tax += incomeAbove500K * 0.20;
+            taxableIncome = 500000;
+        }
+
+        // อัตรา 10%
+        if (taxableIncome > 300000) {
+            double incomeInBracket = taxableIncome - 300000;
+            tax += incomeInBracket * 0.10;
+            taxableIncome = 300000;
+        }
+
+        // อัตรา 5%
+        if (taxableIncome > 150000) {
+            double incomeInBracket = taxableIncome - 150000;
+            tax += incomeInBracket * 0.05;
+            taxableIncome = 150000;
+        }
+
+        return tax;
+    }
+
+    public void displayTaxDetails(){
+        System.out.println("Income: " + income);
+        System.out.println("Tax: " + calculateTax());
+    }
+
+}

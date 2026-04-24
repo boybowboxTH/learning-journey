@@ -1,0 +1,42 @@
+--Ex101
+
+public class Ex101 {
+    static void main(){
+        System.out.println("Hello, I am Suppanut Phonyomma");
+    }
+}
+
+--Ex102
+
+public class Ex102 {
+    static void main(){
+        System.out.println("Hello, I am Suppanut Phonyomma\n" +
+                "\"INT-108\" \'Object-Oriented Programming\'\n" +
+                "\tThis is my first time learning Java\n" +
+                "\tI hope to get grade \"A\"");
+    }
+}
+
+--Ex103
+
+import javax.swing.*;
+
+public class Ex103 {
+    static void main(){
+        JOptionPane.showMessageDialog(null,"Hello, I am Suppanut Phonyomma");
+        JOptionPane.showMessageDialog(null,"Hello, I am Suppanut Phonyomma","Message",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Hello, I am Suppanut Phonyomma","Message",JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Hello, I am Suppanut Phonyomma","Message",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Hello, I am Suppanut Phonyomma","Message",JOptionPane.PLAIN_MESSAGE);
+    }
+}
+
+--Ex104
+
+import javax.swing.*;
+
+public class Ex104 {
+    static void main(){
+        JOptionPane.showMessageDialog(null,"I am Suppanut Phonyomma\nINT-108 Object-Oriented Programming\nThis is my first time learning Java");
+    }
+}

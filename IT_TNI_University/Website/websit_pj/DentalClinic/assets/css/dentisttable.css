@@ -1,0 +1,70 @@
+
+.dentist-layout-wrapper {
+    font-family: "Noto Sans Thai", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f8f9fa; /* สีพื้นหลังอ่อนๆ */
+}
+
+.dentist-layout-wrapper .header-logo {
+    position: absolute;
+    left: 35px;
+    top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.dentist-layout-wrapper .logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.dentist-layout-wrapper .logotext {
+    font-size: 0.9em;
+    color: black;
+    margin: 0;
+    font-weight: bold;
+}
+
+.dentist-layout-wrapper #container-dentist {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 80px; /* เว้นที่ให้ Logo ด้านบน */
+}
+
+.dentist-layout-wrapper #content-dentist {
+    width: 90%;
+    max-width: 800px;
+}
+
+/* จัดการตารางให้เจาะจง */
+.dentist-layout-wrapper .table-custom {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dentist-layout-wrapper .table-custom td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.dentist-layout-wrapper .heading {
+    background-color: #fff;
+    border-bottom: 3px solid #1984f1 !important;
+    font-weight: bold;
+}
+
+.dentist-layout-wrapper .head-text {
+    color: #1984f1;
+}

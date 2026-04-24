@@ -1,0 +1,190 @@
+--Lab201
+
+public class Lab201 {
+    static void main(){
+        int num1 = 10;
+        int num2 = 8;
+
+        System.out.println("Summation = " + (num1 + num2) +
+                "\nSubtraction = " + (num1 - num2) +
+                "\nMultiplication = " + (num1 * num2) +
+                "\nDivision = " + ((double)num1 / num2) +
+                "\nModulus = " + (num1 % num2));
+    }
+
+}
+
+
+--Lab202
+
+import java.util.Scanner;
+
+public class Lab202 {
+    static void main(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number 1: ");
+        int num1 = sc.nextInt();
+
+        System.out.print("Enter number 2: ");
+        int num2 = sc.nextInt();
+
+        System.out.println();
+
+        System.out.println("Summation = " + (num1 + num2) +
+                "\nSubtraction = " + (num1 - num2) +
+                "\nMultiplication = " + (num1 * num2) +
+                "\nDivision = " + ((double)num1 / num2) +
+                "\nModulus = " + (num1 % num2));
+
+    }
+}
+
+--Lab203
+
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class Lab203 {
+    static void main(){
+        Scanner sc = new Scanner(System.in);
+        DecimalFormat df = new DecimalFormat("#,###.00");
+
+        System.out.print("Enter product id      : ");
+        String productId = sc.nextLine();
+
+        System.out.print("Enter product name    : ");
+        String productName = sc.nextLine();
+
+        System.out.print("Enter product item    : ");
+        int productQuantity = sc.nextInt();
+
+        System.out.print("Enter price per piece : ");
+        double productPrice = sc.nextDouble();
+
+        System.out.println("----------------------------------------");
+
+        System.out.println("Product name: " + productName + " ("+ productId +")" +
+                "\nProduct item: " + productQuantity +" (" + df.format(productPrice) + " baht/piece)" +
+                "\nTotal price : " + df.format(productPrice * productQuantity) + "baht");
+
+    }
+}
+
+
+--Lab204
+
+import java.util.Scanner;
+public class Lab204 {
+    static void main(){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input hour : ");
+        int hour = sc.nextInt();
+
+        System.out.print("Input hour : ");
+        int minute = sc.nextInt();
+
+        int hourTomin = hour * 60;
+
+        System.out.println("Total time is " + (hourTomin + minute) + " minutes");
+    }
+}
+
+
+--Lab205
+
+import javax.swing.*;
+public class Lab205 {
+    static void main(){
+        int getMinute = Integer.parseInt(JOptionPane.showInputDialog(null,"Input minutes:"));
+
+        int Hour = getMinute / 60;
+        int Minute = getMinute % 60;
+
+        JOptionPane.showMessageDialog(null, getMinute + " minutes is " + Hour + " hour " + Minute + " minute");
+    }
+}
+
+
+--Lab206
+
+import javax.swing.*;
+import java.text.DecimalFormat;
+public class Lab206 {
+    static void main(){
+        DecimalFormat df = new DecimalFormat("#,####.00");
+
+        int numCus = Integer.parseInt(JOptionPane.showInputDialog(null,"How many customer?"));
+
+        double sumPriceWithNet = (numCus * 299) + ((numCus * 299) * 0.07);
+
+        int discount = Integer.parseInt(JOptionPane.showInputDialog(null,"Price with NET is " + sumPriceWithNet + " baht." + "\nHow much of discount(%) on your coupon?"));
+
+        double totalPrice = sumPriceWithNet - (sumPriceWithNet * ((double) discount / 100));
+
+        double cash = Double.parseDouble(JOptionPane.showInputDialog(null,"Total price is " + df.format(totalPrice) + " baht." +
+                "\nEnter the amount the customer paid:"));
+
+        JOptionPane.showMessageDialog(null,"Total price is " + df.format(totalPrice) + " baht." +
+                "\nCustomer paid " + df.format(cash) + " baht." + "\nGet change " + df.format(cash - totalPrice) + " baht.");
+    }
+}
+
+
+--Lab207
+
+import javax.swing.JOptionPane;
+import java.text.DecimalFormat;
+public class Lab207 {
+    static void main(){
+        DecimalFormat df = new DecimalFormat("#,###.00");
+        JOptionPane.showMessageDialog(null,"Welcome to the payroll application");
+
+        String emp_name = JOptionPane.showInputDialog(null,"Enter employee name:");
+        int emp_TimeWork = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter total hour for this employee:"));
+
+        double earning = emp_TimeWork * 7.50;
+        double tax = earning * 0.15;
+
+        JOptionPane.showMessageDialog(null,"Employee name: " + emp_name +
+                "\nHour worked: " + emp_TimeWork +
+                "\nHourly wage: $7.50" +
+                "\nGross earnings: $" + df.format(earning) +
+                "\nTax rate: 0.15" +
+                "\nTax: $" + df.format(tax) +
+                "\nNet earnings: $" + df.format(earning - tax));
+
+    }
+}
+
+
+--Lab208
+
+import javax.swing.JOptionPane;
+
+public class Lab208 {
+    static void main(){
+        // start
+        int startHour = Integer.parseInt(JOptionPane.showInputDialog(null,"Input start time (hour)"));
+        int startMinute = Integer.parseInt(JOptionPane.showInputDialog(null,"Input start time (minute)"));
+
+        //end
+        int endHour = Integer.parseInt(JOptionPane.showInputDialog(null,"Input start time (hour)"));
+        int endMinute = Integer.parseInt(JOptionPane.showInputDialog(null,"Input start time (minute)"));
+
+        int totalTimeStart = (startHour * 60) + startMinute;
+        int totalTimeEnd = (endHour * 60) + endMinute;
+        int diffTime = totalTimeEnd - totalTimeStart;
+
+        int diffHour = (diffTime / 60);
+        int diffMinute = (diffTime % 60);
+
+        double payment = (diffHour * 50) + (diffMinute * 0.25);
+
+        JOptionPane.showMessageDialog(null, "Start parking at " + startHour + ":" + startMinute +
+                "\nEnd parking at " + endHour + ":" + String.format("%02d", endMinute) +
+                "\nTotal time is " + diffHour + " hour " + diffMinute + " minutes" +
+                "\nParking payment is " + payment + " baht.");
+
+    }
+}

@@ -1,0 +1,30 @@
+--Lab101
+
+public class Lab101 {
+    static void main(){
+        System.out.println("Hello, I am Suppanut Phonyomma\n" +
+                "\tThis is my first time learning Java\n" +
+                "\tI hope to get grade \"A\"");
+    }
+}
+
+
+--Lab102
+
+public class Lab102 {
+    static void main(){
+        System.out.println("Summation number = " + 2 + 5);
+
+        System.out.println("Summation number = " + (2 + 5));
+    }
+}
+
+
+--Lab103
+
+import javax.swing.*;
+public class Lab103 {
+    static void main(){
+        JOptionPane.showMessageDialog(null,"I am Suppanut Phonyomma\nI hope to get grade \"A\"","My Hope",JOptionPane.WARNING_MESSAGE);
+    }
+}
